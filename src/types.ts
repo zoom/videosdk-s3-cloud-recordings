@@ -1,7 +1,7 @@
 import type { Request as ExpressRequest, Response as ExpressResponse } from "express";
 
 /* AWS S3 */
-export type S3Uri = {
+export type S3Url = {
   bucketName: string;
   region: string;
 };

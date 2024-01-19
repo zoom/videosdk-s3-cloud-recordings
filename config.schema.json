@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JSON Schema for Zoom Cloud Recordings to AWS S3 Auto-Upload",
+  "type": "object",
+  "properties": {
+    "aws": {
+      "type": "object",
+      "description": "The AWS instance which is used to upload Cloud Recording file(s)",
+      "properties": {
+        "s3": {
+          "type": "object",
+          "description": "The AWS S3 instance which is used to upload Cloud Recording file(s)",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "Fully-qualified URL of S3 bucket to upload Zoom Cloud Recordings to"
+            }
+          },
+          "required": ["url"]
+        }
+      },
+      "required": ["s3"]
+    }
+  },
+  "required": ["aws"]
+}

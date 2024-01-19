@@ -1,7 +1,8 @@
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import type { Readable } from "node:stream";
-import type { RecordingFile, S3Uri } from "./types";
+import config from "../config.json";
+import type { RecordingFile, S3Url } from "./types";
 import { getEnvironmentVariable } from "./utils";
 
 const S3_URI_PATTERN = /https:\/\/([\w\W]+).s3.([\w\W]+).amazonaws.com/;
@@ -12,12 +13,16 @@ const S3_URI_PATTERN = /https:\/\/([\w\W]+).s3.([\w\W]+).amazonaws.com/;
  * The URI is pulled from the current environment variables, and will throw an error
  * if a required environment variable was not found. See {@link getEnvironmentVariable}.
  */
-export const getS3Uri = (): S3Uri => {
-  const s3Uri = getEnvironmentVariable("AWS_S3_URI");
-  const uriMatches = s3Uri.match(S3_URI_PATTERN);
+export const getS3Url = (): S3Url => {
+  const {
+    aws: {
+      s3: { url: s3Url }
+    }
+  } = config;
+  const uriMatches = s3Url.match(S3_URI_PATTERN);
 
   if (!uriMatches) {
-    throw new Error(`Failed to decode S3 URI ${s3Uri}, no matches found`);
+    throw new Error(`Failed to decode S3 URI ${s3Url}, no matches found`);
   }
 
   const bucketName = uriMatches[1];
@@ -44,7 +49,7 @@ export const uploadToBucket = async (fileInfo: RecordingFile, requestStream: Rea
   const fileKey = `${fileId}.${fileExtension.toLowerCase()}`;
 
   // Get the bucket name and AWS region to upload to from Node environment
-  const { bucketName, region } = getS3Uri();
+  const { bucketName, region } = getS3Url();
 
   // Instantiate our S3 client, specifying our AWS credentials, as well as the bucket
   // to upload to, the file key (name), and the request stream that will be uploaded
