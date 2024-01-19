@@ -61,9 +61,10 @@ app.post("/", (req: WebhookRequest, res: WebhookResponse) => {
       const queueItems = mapToQueueItems(req.body);
       console.log("Mapped recording items: ", JSON.stringify(queueItems));
       queueItems.map((item) => fetchQueue.push(item));
-
-      return res.status(200).json({ message: "Authorized request to Zoom Webhook sample." });
     }
+
+    // Validation passed and no errors were thrown, let Zoom know it's authorized and processed!
+    return res.status(200).json({ message: "Authorized request to Zoom Webhook sample." });
   }
 
   // Request validation failed, meaning that the request likely did not come from Zoom
