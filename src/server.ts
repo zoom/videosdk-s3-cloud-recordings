@@ -2,10 +2,10 @@ import dotenv from "dotenv";
 import express from "express";
 import fastq, { type queueAsPromised as JobQueue } from "fastq";
 import { createHmac } from "node:crypto";
-import { uploadToBucket } from "./aws-uploader";
+import { uploadToBucket } from "./aws-uploader.js";
 import type { QueueItem, WebhookRequest, WebhookResponse } from "./types";
-import { getEnvironmentVariable, mapToQueueItems } from "./utils";
-import { downloadCloudRecording } from "./zoom-downloader";
+import { getEnvironmentVariable, mapToQueueItems } from "./utils.js";
+import { downloadCloudRecording } from "./zoom-downloader.js";
 
 // Ingest .env environment variables
 dotenv.config();

@@ -1,9 +1,9 @@
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import type { Readable } from "node:stream";
-import config from "../config.json";
+import config from "../config.json" assert { type: "json" };
 import type { RecordingFile, S3Url } from "./types";
-import { getEnvironmentVariable } from "./utils";
+import { getEnvironmentVariable } from "./utils.js";
 
 const S3_URI_PATTERN = /https:\/\/([\w\W]+).s3.([\w\W]+).amazonaws.com/;
 

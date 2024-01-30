@@ -4,10 +4,11 @@
         "@tsconfig/strictest"
     ],
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "esnext",
         "moduleResolution": "node",
         "outDir": "dist",
         "removeComments": true,
+        "rootDir": "src",
         "resolveJsonModule": true,
         "strictNullChecks": true,
     },
