@@ -2,7 +2,7 @@
   "name": "videosdk-s3-recordings-sample",
   "version": "1.0.0",
   "description": "Zoom Video SDK sample demonstrating auto-upload of cloud recordings to AWS S3",
-  "license": "MIT",
+  "license": "See LICENSE",
   "author": {
     "name": "James Coon",
     "url": "https://developers.zoom.us"
