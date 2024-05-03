@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "videosdk-s3-recordings-sample",
+  "name": "videosdk-s3-cloud-recordings",
   "version": "1.0.0",
   "description": "Zoom Video SDK sample demonstrating auto-upload of cloud recordings to AWS S3",
   "license": "See LICENSE",

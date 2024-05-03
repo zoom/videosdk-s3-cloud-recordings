@@ -9,7 +9,7 @@ This Express/Node.js project demonstrates how to set up and listen to Zoom webho
 In a terminal window (e.g., Git Bash for Windows or Terminal for Linux/Mac OS), clone this repository by executing the following command:
 
 ```bash
-$ git clone https://github.com/jcoon97/zoom-video-sdk-s3-uploader.git
+$ git clone https://github.com/zoom/videosdk-s3-cloud-recordings.git
 ```
 
 ## Setup & Configuration
@@ -26,7 +26,7 @@ $ git clone https://github.com/jcoon97/zoom-video-sdk-s3-uploader.git
     $ npm install
     ```
 
-3. Rename `.env.local` to `.env`, replacing all environment variables for use with the [AWS SDK](https://github.com/jcoon97/zoom-video-sdk-s3-uploader/wiki/Preparing-Your-AWS-Account) and [Zoom's Video SDK](https://marketplace.zoom.us/develop).
+3. Rename `.env.local` to `.env`, replacing all environment variables for use with the [AWS SDK](https://github.com/zoom/videosdk-s3-cloud-recordings/wiki/Preparing-Your-AWS-Account) and [Zoom's Video SDK](https://marketplace.zoom.us/develop).
 
 4. Start the development server
 
